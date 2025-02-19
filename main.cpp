@@ -1,8 +1,7 @@
-#include <iostream>
-#include "raylib.h"
-#include "raymath.h"
+#include "common.hpp"
 #include "player.hpp"
 #include "ball.hpp"
+
 using namespace std;
 
 Rect::Rect(){
@@ -45,7 +44,7 @@ int main(){
         BeginDrawing();
             ClearBackground(BLACK);
             DrawRectangle(rect.posx, rect.posy, 60, 120, RED);
-            
+           
         EndDrawing();
 
     }
