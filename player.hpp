@@ -8,6 +8,8 @@ public:
     
     int posy;
     int posx;
+    int AIx;
+    int AIy;
 
 private:
 
