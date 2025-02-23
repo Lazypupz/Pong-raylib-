@@ -20,10 +20,10 @@ void Rect::Move(){
     if(IsKeyDown(KEY_S)){
         posy+=15;
     }
-    if(IsKeyDown(KEY_K)){
+    if(IsKeyDown(KEY_DOWN || KEY_K)){
         AIy += 15;
     }
-    if(IsKeyDown(KEY_I)){
+    if(IsKeyDown(KEY_UP || KEY_I)){
         AIy -= 15;
     }   
 }
@@ -56,19 +56,22 @@ void Ball::initBall(){
     }
 }
 void Ball::Draw(){
-    DrawCircle(ballx,bally,radius,PINK);
+    DrawCircle(ballx,bally,radius,BLACK);
 }
 
 
 int main(){
 
     InitWindow(screenWidth,screenHeight, "Raylib Test");
+
+    
+
     SetTargetFPS(60);
     Rect rect;
     Ball ball;
 
     while(!WindowShouldClose()){
-
+        
 
         //Updating
 
@@ -84,12 +87,12 @@ int main(){
             ball.initBall();
             rect.Move();
 
-            ClearBackground(BLACK);
+            ClearBackground(RAYWHITE);
             ball.Draw();
-            DrawRectangle(static_cast<float>(rect.AIx),static_cast<float>(rect.AIy), 60, 120, RED);
+            DrawRectangle(static_cast<float>(rect.AIx),static_cast<float>(rect.AIy), 60, 120, BLACK);
             
-            DrawRectangle(rect.posx, rect.posy, 60, 120, RED);
-            DrawLine(screenWidth / 2, screenHeight, screenWidth / 2 + 1, screenHeight - screenHeight + 1, WHITE);
+            DrawRectangle(rect.posx, rect.posy, 60, 120, BLACK);
+            DrawLine(screenWidth / 2, screenHeight, screenWidth / 2 + 1, screenHeight - screenHeight + 1, GRAY);
         EndDrawing();
 
     }
